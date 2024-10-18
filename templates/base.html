@@ -1,0 +1,13 @@
+{% load static %}
+{% include 'header.html' %}
+
+<main class="container mt-4">
+    <h2>Available Travel Packages</h2>
+    <div class="row">
+        {% block 'main' %} 
+        <!-- main content (page specific content) should be placed  -->
+        {% endblock 'main' %}
+    </div>
+</main>
+
+{% include 'footer.html' %}

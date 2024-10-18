@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<!-- extends must be mentioned on first line of the child template -->
+{% load static %}
+
+{% block 'main' %}
+
+
+<main class="container mt-4">
+    <h2>{{travel.location}}</h2>
+    <img src="{{ travel.imagepath.url }}" class="img-fluid" alt=" Holiday">
+    <p class="mt-3">{{travel.details}}</p>
+    <p><strong>Price:</strong>{{travel.price}}</p>
+    <button class="btn btn-primary">Book Now</button>
+</main>
+
+{% endblock 'main' %}

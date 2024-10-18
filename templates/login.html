@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!-- extends must be mentioned on first line of the child template -->
+{% load static %}
+
+{% block 'main' %}
+
+<form action="", method="post">
+    {% csrf_token %}
+    {% for msg in messages %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success">
+        {{ msg }}
+    </div>
+
+    {% elif msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+     <div class="alert alert-danger" role="alert">
+       {{msg}}
+     </div>
+
+    {% endif %}
+
+    {% endfor %}
+    {% if success %}
+    <div class="alert alert-success">
+        {{success}}
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+    {% endif %}
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div>
+        New Register? <a href="register.html"></a></div>
+</form>
+{% endblock 'main' %}

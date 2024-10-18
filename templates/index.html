@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!-- extends must be mentioned on first line of the child template -->
+{% load static %}
+
+{% block 'main' %}
+    
+    {% for msg in messages %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success">
+        {{ msg }}
+    </div>
+    {% endif %}
+
+    {% endfor %}
+{% for travel in travels %}
+
+<div class="col-md-4">
+    <div class="card">
+        <img src="{{ travel.imagepath.url }}" class="card-img-top" alt="Package 2">
+        <div class="card-body">
+            <h5 class="card-title">{{ travel.location }}</h5>
+            <p class="card-text">{{travel.catagory}} </p>
+            <p class="card-text">{{ travel.details}}</p>
+            <strong> RS.{{travel.price}}</strong><br>
+            <p> Travel guide :{{travel.guide}}</p>
+            <a href="/addtocart/{{travel.id}}" class="btn btn-primary">Add to cart</a>
+            <a href="/details/{{travel.id}}" class="btn btn-primary">View Details</a>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock 'main' %}
